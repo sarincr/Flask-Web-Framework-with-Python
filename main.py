@@ -44,45 +44,45 @@ b2.pack(side = LEFT, expand = True, fill = "both",)
 b3 = Button(btn1, text = "3", font = ("Verdana", 22))
 b3.pack(side = LEFT, expand = True, fill = "both",)
 
-b4 = Button(btn1, text = "4", font = ("Verdana", 22))
+b4 = Button(btn1, text = "+", font = ("Verdana", 22))
 b4.pack(side = LEFT, expand = True, fill = "both",)
 
-b5 = Button(btn2, text = "5", font = ("Verdana", 22))
+b5 = Button(btn2, text = "4", font = ("Verdana", 22))
 b5.pack(side = LEFT, expand = True, fill = "both",)
 
-b6 = Button(btn2, text = "6", font = ("Verdana", 22))
+b6 = Button(btn2, text = "5", font = ("Verdana", 22))
 b6.pack(side = LEFT, expand = True, fill = "both",)
 
-b7 = Button(btn2, text = "7", font = ("Verdana", 22))
+b7 = Button(btn2, text = "6", font = ("Verdana", 22))
 b7.pack(side = LEFT, expand = True, fill = "both",)
 
-b8 = Button(btn2, text = "8", font = ("Verdana", 22))
+b8 = Button(btn2, text = "-", font = ("Verdana", 22))
 b8.pack(side = LEFT, expand = True, fill = "both",)
 
 
 
-b9 = Button(btn3, text = "5", font = ("Verdana", 22))
+b9 = Button(btn3, text = "7", font = ("Verdana", 22))
 b9.pack(side = LEFT, expand = True, fill = "both",)
 
-b10 = Button(btn3, text = "6", font = ("Verdana", 22))
+b10 = Button(btn3, text = "8", font = ("Verdana", 22))
 b10.pack(side = LEFT, expand = True, fill = "both",)
 
-b11 = Button(btn3, text = "7", font = ("Verdana", 22))
+b11 = Button(btn3, text = "9", font = ("Verdana", 22))
 b11.pack(side = LEFT, expand = True, fill = "both",)
 
-b12 = Button(btn3, text = "8", font = ("Verdana", 22))
+b12 = Button(btn3, text = "*", font = ("Verdana", 22))
 b12.pack(side = LEFT, expand = True, fill = "both",)
 
-b13 = Button(btn4, text = "5", font = ("Verdana", 22))
+b13 = Button(btn4, text = "0", font = ("Verdana", 22))
 b13.pack(side = LEFT, expand = True, fill = "both",)
 
-b14 = Button(btn4, text = "6", font = ("Verdana", 22))
+b14 = Button(btn4, text = "/", font = ("Verdana", 22))
 b14.pack(side = LEFT, expand = True, fill = "both",)
 
-b15 = Button(btn4, text = "7", font = ("Verdana", 22))
+b15 = Button(btn4, text = "%", font = ("Verdana", 22))
 b15.pack(side = LEFT, expand = True, fill = "both",)
 
-b16 = Button(btn4, text = "8", font = ("Verdana", 22))
+b16 = Button(btn4, text = "=", font = ("Verdana", 22))
 b16.pack(side = LEFT, expand = True, fill = "both",)
 
 
