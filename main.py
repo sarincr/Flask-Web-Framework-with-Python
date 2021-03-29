@@ -1,209 +1,332 @@
-import tkinter as tk 
-from tkinter  import * 
-tks = tk.Tk() 
-tks.geometry("250x400+300+300") 
-tks.resizable(0,0)
-tks.title('Calculator') 
+import tkinter
+from tkinter import *
+from tkinter import messagebox
+ 
+root = tkinter.Tk()
+root.geometry("250x400+300+300")
+root.resizable(0,0)
+root.title("Calculator")
+
+X = ""
+A = 0
+operator = ""
 
 
-val = ""
+def button_1_isckd():
+    global X
+    X = X + "1"
+    data.set(X)
+
+def button_2_isckd():
+    global X
+    X = X + "2"
+    data.set(X)
+
+def button_3_isckd():
+    global X
+    X = X + "3"
+    data.set(X)
+
+def button_4_isckd():
+    global X
+    X = X + "4"
+    data.set(X)
+
+def button_5_isckd():
+    global X
+    X = X + "5"
+    data.set(X)
+
+def button_6_isckd():
+    global X
+    X = X + "6"
+    data.set(X)
+
+def button_7_isckd():
+    global X
+    X = X + "7"
+    data.set(X)
+
+def button_8_isckd():
+    global X
+    X = X + "8"
+    data.set(X)
+
+def button_9_isckd():
+    global X
+    X = X + "9"
+    data.set(X)
+
+def button_0_isckd():
+    global X
+    X = X + "0"
+    data.set(X)
 
 
+def button_plus_ckd():
+    global A
+    global operator,X
+    A = int(X)
+    operator = "+"
+    X = X + "+"
+    data.set(X)
 
-dt = StringVar()
-lb = Label(
-    tks,
+def button_minus_ckd():
+    global A
+    global operator,X
+    A = int(X)
+    operator = "-"
+    X = X + "-"
+    data.set(X)
+
+def button_mult_ckd():
+    global A
+    global operator,X
+    A = int(X)
+    operator = "*"
+    X = X + "*"
+    data.set(X)
+
+def button_div_ckd():
+    global A
+    global operator,X
+    A = int(X)
+    operator = "/"
+    X = X + "/"
+    data.set(X)
+
+def button_c_pressed():
+    global A,operator,X
+    X = ""
+    A = 0
+    operator = ""
+    data.set(X)
+
+
+# function to find the result
+def result():
+    global A,operator,X
+    X2 = X
+    if operator == "+":
+        x = int((X2.split("+")[1]))
+        C = A + x
+        X = str(C)
+        data.set(X)
+    if operator == "-":
+        x = int((X2.split("-")[1]))
+        C = A - x
+        X = str(C)
+        data.set(X)
+    if operator == "*":
+        x = int((X2.split("*")[1]))
+        C = A * x
+        X = str(C)
+        data.set(X)
+    if operator == "/":
+        x = int((X2.split("/")[1]))
+        if x == 0:
+            messagebox.showerror("Error", "Division By 0 Not Supported")
+            A = ""
+            X = ""
+            data.set(X)
+        else:
+            C = int(A / x)
+            data.set(C)
+
+
+# the label that shows the result
+data = StringVar()
+lbl = Label(
+    root,
     text = "Label",
     anchor = SE,
-    font = ("Verdana", 10),
-    relief = GROOVE,
-    border = 0,
-    textvariable = dt,
+    font = ("Verdana", 20),
+    textvariable = data,
     background = "#ffffff",
     fg = "#000000",
 )
+lbl.pack(expand = True, fill = "both")
 
-lb.pack(expand = True, fill = "both")
+# the frames section
+buttonrow1 = Frame(root)
+buttonrow1.pack(expand = True, fill = "both")
 
+buttonrow2 = Frame(root)
+buttonrow2.pack(expand = True, fill = "both")
 
-def btn1CK():
-    global val
-    val = val + "1"
-    dt.set(val)
+buttonrow3 = Frame(root)
+buttonrow3.pack(expand = True, fill = "both")
 
-def btn2CK():
-    global val
-    val = val + "2"
-    dt.set(val)
-
-def btn3CK():
-    global val
-    val = val + "3"
-    dt.set(val)
-
-def btn4CK():
-    global val
-    val = val + "4"
-    dt.set(val)
-
-def btn5CK():
-    global val
-    val = val + "5"
-    dt.set(val)
-
-def btn6CK():
-    global val
-    val = val + "6"
-    dt.set(val)
-
-def btn7CK():
-    global val
-    val = val + "7"
-    dt.set(val)
-
-def btn8CK():
-    global val
-    val = val + "8"
-    dt.set(val)
-
-def btn9CK():
-    global val
-    val = val + "9"
-    dt.set(val)
-
-def btn0CK():
-    global val
-    val = val + "0"
-    dt.set(val)
+buttonrow4 = Frame(root)
+buttonrow4.pack(expand = True, fill = "both")
 
 
-
-
-btn1 = Frame(tks, bg="#000000")
-btn1.pack(expand=True, fill="both")
-
-
-btn2 = Frame(tks, bg="#000000")
-btn2.pack(expand=True, fill="both")
-
-btn3 = Frame(tks, bg="#000000")
-btn3.pack(expand=True, fill="both")
-
-btn4 = Frame(tks, bg="#000000")
-btn4.pack(expand=True, fill="both")
-
-
-
-
-
-
-b1 = Button(btn1, text = "1", font = ("Verdana", 10),
+# The buttons section
+button1 = Button(
+    buttonrow1,
+    text = "1",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn1CK
+    command = button_1_isckd,
 )
-b1.pack(side = LEFT, expand = True, fill = "both",)
+button1.pack(side = LEFT, expand = True, fill = "both",)
 
-b2 = Button(btn1, text = "2", font = ("Verdana", 10),
+button2 = Button(
+    buttonrow1,
+    text = "2",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn2CK
+    command = button_2_isckd,
 )
-b2.pack(side = LEFT, expand = True, fill = "both",)
+button2.pack(side = LEFT, expand = True, fill = "both",)
 
-b3 = Button(btn1, text = "3", font = ("Verdana", 10),
+button3 = Button(
+    buttonrow1,
+    text = "3",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn3CK
+    command = button_3_isckd,
 )
-b3.pack(side = LEFT, expand = True, fill = "both",)
+button3.pack(side = LEFT, expand = True, fill = "both",)
 
-b4 = Button(btn1, text = "+", font = ("Verdana", 10),
-    relief = GROOVE,
-    border = 0
-)
-b4.pack(side = LEFT, expand = True, fill = "both",)
-
-b5 = Button(btn2, text = "4", font = ("Verdana", 10),
+buttonplus = Button(
+    buttonrow1,
+    text = "+",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn4CK
+    command = button_plus_ckd,
 )
-b5.pack(side = LEFT, expand = True, fill = "both",)
+buttonplus.pack(side = LEFT, expand = True, fill = "both",)
 
-b6 = Button(btn2, text = "5", font = ("Verdana", 10),
+# buttons for frame 2
+
+button4 = Button(
+    buttonrow2,
+    text = "4",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn5CK
+    command = button_4_isckd,
 )
-b6.pack(side = LEFT, expand = True, fill = "both",)
+button4.pack(side = LEFT, expand = True, fill = "both",)
 
-b7 = Button(btn2, text = "6", font = ("Verdana", 10),
+button5 = Button(
+    buttonrow2,
+    text = "5",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn6CK
+    command = button_5_isckd,
 )
-b7.pack(side = LEFT, expand = True, fill = "both",)
+button5.pack(side = LEFT, expand = True, fill = "both",)
 
-b8 = Button(btn2, text = "-", font = ("Verdana", 10),
-    relief = GROOVE,
-    border = 0
-)
-b8.pack(side = LEFT, expand = True, fill = "both",)
-
-
-
-b9 = Button(btn3, text = "7", font = ("Verdana", 10),
+button6 = Button(
+    buttonrow2,
+    text = "6",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn7CK
+    command = button_6_isckd,
 )
-b9.pack(side = LEFT, expand = True, fill = "both",)
+button6.pack(side = LEFT, expand = True, fill = "both",)
 
-b10 = Button(btn3, text = "8", font = ("Verdana", 10),
+buttonminus = Button(
+    buttonrow2,
+    text = "-",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn8CK
+    command = button_minus_ckd,
 )
-b10.pack(side = LEFT, expand = True, fill = "both",)
+buttonminus.pack(side = LEFT, expand = True, fill = "both",)
 
-b11 = Button(btn3, text = "9", font = ("Verdana", 10),
+# button for frame 3
+
+button7 = Button(
+    buttonrow3,
+    text = "7",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn9CK
+    command = button_7_isckd,
 )
-b11.pack(side = LEFT, expand = True, fill = "both",)
+button7.pack(side = LEFT, expand = True, fill = "both",)
 
-b12 = Button(btn3, text = "*", font = ("Verdana", 10),
-    relief = GROOVE,
-    border = 0
-)
-b12.pack(side = LEFT, expand = True, fill = "both",)
-
-b13 = Button(btn4, text = "0", font = ("Verdana", 10),
+button8 = Button(
+    buttonrow3,
+    text = "8",
+    font = ("Verdana", 10),
     relief = GROOVE,
     border = 0,
-    command = btn0CK
+    command = button_8_isckd,
 )
-b13.pack(side = LEFT, expand = True, fill = "both",)
+button8.pack(side = LEFT, expand = True, fill = "both",)
 
-b14 = Button(btn4, text = "/", font = ("Verdana", 10),
+button9 = Button(
+    buttonrow3,
+    text = "9",
+    font = ("Verdana", 10),
     relief = GROOVE,
-    border = 0
+    border = 0,
+    command = button_9_isckd,
 )
-b14.pack(side = LEFT, expand = True, fill = "both",)
+button9.pack(side = LEFT, expand = True, fill = "both",)
 
-b15 = Button(btn4, text = "%", font = ("Verdana", 10),
+buttonmult = Button(
+    buttonrow3,
+    text = "*",
+    font = ("Verdana", 10),
     relief = GROOVE,
-    border = 0
+    border = 0,
+    command = button_mult_ckd,
 )
-b15.pack(side = LEFT, expand = True, fill = "both",)
+buttonmult.pack(side = LEFT, expand = True, fill = "both",)
 
-b16 = Button(btn4, text = "=", font = ("Verdana", 10),
+# button for frame4
+
+
+buttonc = Button(
+    buttonrow4,
+    text = "C",
+    font = ("Verdana", 10),
     relief = GROOVE,
-    border = 0
+    border = 0,
+    command = button_c_pressed,
 )
-b16.pack(side = LEFT, expand = True, fill = "both",)
+buttonc.pack(side = LEFT, expand = True, fill = "both",)
 
+button0 = Button(
+    buttonrow4,
+    text = "0",
+    font = ("Verdana", 10),
+    relief = GROOVE,
+    border = 0,
+    command = button_0_isckd,
+)
+button0.pack(side = LEFT, expand = True, fill = "both",)
 
-tks.mainloop() 
+buttonequal = Button(
+    buttonrow4,
+    text = "=",
+    font = ("Verdana", 10),
+    relief = GROOVE,
+    border = 0,
+    command = result,
+)
+buttonequal.pack(side = LEFT, expand = True, fill = "both",)
+
+buttondiv = Button(
+    buttonrow4,
+    text = "/",
+    font = ("Verdana", 10),
+    relief = GROOVE,
+    border = 0,
+    command = button_div_ckd,
+)
+buttondiv.pack(side = LEFT, expand = True, fill = "both",)
+
+root.mainloop()
